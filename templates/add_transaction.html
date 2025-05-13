@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+  <h1>Welcome to our Personal Financial Tracker</h1>
+  <p style="text-align: center;"> Please select one of the links from the nav bar.</p>
+</div>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Financial Tracker</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        input[type="date"], input[type="number"], [type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .user-list {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        
+        td {
+            text-align: center;
+        }
+
+        tr {
+            text-align: center;
+        }
+
+        .transaction-list li a {
+            text-decoration: none;
+            color: #007BFF;
+            padding: 5px 10px;
+            margin: 0 5px;
+        }
+
+        .transaction-list li a:hover {
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .delete-link {
+            color: #FF5722;
+        }
+
+        .delete-link:hover {
+            background-color: #FF5722;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Personal Finance Tracker</h1>
+
+        <h2>Add New Transactions</h2>
+        <form action="/add_transaction" method="POST">
+            <input type="date" id="trans_date" name="trans_date" placeholder="Enter Date" required>
+            <input type="text" id="category" name="category" placeholder="Enter Category" required>
+            <input type="text" id="description" name="description" placeholder="Enter Description" required>
+            <input type="number" id="amount" name="amount" placeholder="Enter Amount" required>
+            <button type="submit">Add Transaction</button>
+        </form>
+      <a href="index.html">Back to Home</a>
+    </div>
+</body>
+{% endblock %}
